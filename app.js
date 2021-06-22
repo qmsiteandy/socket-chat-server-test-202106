@@ -13,6 +13,10 @@ server.listen(port, () => {
 
 const io = socket(server);
 
+app.get('/', function(req, res) {
+  res.send('hello world');
+});
+
 io.on("connection", function (socket) {
   console.log("connection", socket.id);
 
