@@ -21,6 +21,6 @@ io.on("connection", function (socket) {
   console.log("connection", socket.id);
 
   socket.on("sendMessage", function (data) {
-    socket.emit("sendMessage", data);
+    io.emit("allMessage", data);
   });
 });
