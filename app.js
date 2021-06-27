@@ -14,6 +14,7 @@ app.get("/", function (req, res) {
   res.send("hello world");
 });
 
+
 const socket = require("socket.io"); //匯入socket
 const io = socket(server); //socket監聽server
 
@@ -26,7 +27,8 @@ io.on("connection", function (socket) {
 
   socket.on("sendMessage", function (data) {
     console.log(data);
-    // 傳送資料到所有client
+    
+    // 傳送資料到特定房間的client
     io.to("room_channel_1").emit("newMessage", data);
   });
 });
